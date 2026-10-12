@@ -1,0 +1,44 @@
+### 1. Получить все книги
+GET http://localhost:8080/api/books
+
+### 2. Создать книгу (успех, 201)
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "Voyna i mir",
+  "author": "Lev Tolstoy",
+  "isbn": "9785171147846",
+  "publicationYear": 1869
+}
+
+### 3. Получить книгу по id (успех, 200)
+GET http://localhost:8080/api/books/1
+
+### 4. Обновить книгу (успех, 200)
+PUT http://localhost:8080/api/books/1
+Content-Type: application/json
+
+{
+  "title": "Voyna i mir (2-e izdanie)",
+  "author": "Lev Tolstoy",
+  "isbn": "9785171147846",
+  "publicationYear": 1869
+}
+
+### 5. Удалить книгу (успех, 204)
+DELETE http://localhost:8080/api/books/1
+
+### 6. Получить несуществующую книгу (ошибка, 404)
+GET http://localhost:8080/api/books/999
+
+### 7. Создать книгу с невалидными данными (ошибка, 400)
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "",
+  "author": "Unknown",
+  "isbn": "123",
+  "publicationYear": 3000
+}
